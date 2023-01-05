@@ -73,6 +73,13 @@ function deleteTodo(id) {
     addToLocalStorage(todos);
 }
 
+function sorter() {
+    todos.map(todo=>{
+
+    })
+}
+
+
 getFromLocalStorage();
 itemsList.addEventListener('click', function (event) {
     if (event.target.type === 'checkbox') {
