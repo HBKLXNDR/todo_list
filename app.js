@@ -1,11 +1,23 @@
 const form = document.querySelector('.todo-form');
 const input = document.querySelector('.todo-input');
 const itemsList = document.querySelector('.todo-items');
+const sortedOption = document.querySelector("#filter")
+
 let todos = [];
+
+sortedOption.addEventListener('change', function (option) {
+    if (option.target.value === "completed") {
+        todos.sort((a, b) => a.completed - b.completed)
+    } else {
+        todos.sort((a, b) => a.name.localeCompare(b.name))
+    }
+    renderTodos(todos)
+})
 
 form.addEventListener('submit', function (event) {
     event.preventDefault();
     addTodo(input.value);
+    input.value = ""
 });
 
 function addTodo(item) {
@@ -71,12 +83,6 @@ function deleteTodo(id) {
         return item.id !== +id;
     });
     addToLocalStorage(todos);
-}
-
-function sorter() {
-    todos.map(todo=>{
-
-    })
 }
 
 

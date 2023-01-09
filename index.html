@@ -11,14 +11,22 @@
 <body>
 <div class="container">
     <h1>Todo</h1>
+    <label class="sorting">
+        <select name="select" id="filter">
+            <option disabled selected value="">Select sorting</option>
+            <option value="completed" id="completed">By uncompleted</option>
+            <option value="name" id="name">By name</option>
+        </select>
+    </label>
+
     <form class="todo-form">
         <label>
             <input type="text" class="todo-input" placeholder="Add a Todo...">
         </label>
-        <button type="submit" class="add-button">Add </button>
+        <button type="submit" class="add-button">Add</button>
     </form>
-    <ul class="todo-items">
-    </ul>
+    <ol class="todo-items">
+    </ol>
 </div>
 
 <script src="app.js"></script>
