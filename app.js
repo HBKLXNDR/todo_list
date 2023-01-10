@@ -20,6 +20,15 @@ form.addEventListener('submit', function (event) {
     input.value = ""
 });
 
+itemsList.addEventListener('click', function (event) {
+    if (event.target.type === 'checkbox') {
+        toggle(event.target.parentElement.getAttribute('data-key'));
+    }
+    if (event.target.classList.contains('delete-button')) {
+        deleteTodo(event.target.parentElement.getAttribute('data-key'));
+    }
+});
+
 function addTodo(item) {
     if (item !== '') {
         const todo = {
@@ -30,7 +39,6 @@ function addTodo(item) {
 
         todos.push(todo);
         addToLocalStorage(todos);
-        item.value = '';
     }
 }
 
@@ -87,11 +95,3 @@ function deleteTodo(id) {
 
 
 getFromLocalStorage();
-itemsList.addEventListener('click', function (event) {
-    if (event.target.type === 'checkbox') {
-        toggle(event.target.parentElement.getAttribute('data-key'));
-    }
-    if (event.target.classList.contains('delete-button')) {
-        deleteTodo(event.target.parentElement.getAttribute('data-key'));
-    }
-});
